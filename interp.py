@@ -4,9 +4,11 @@
 
 import sys
 class Ev:
-    def ev(s):
+    def ev(self, s):
         lines = [x for x in s.split("\n") if x.strip() != ""] # Split into new lines and throw away empty lines
-    def ev_expr(s): # Single expression evaluator function
+        for line in lines:
+            print(self.ev_expr(line)) # Evaluate each line
+    def ev_expr(self, s): # Single expression evaluator function
         toks = s.split() # Split a line into tokens
         stack = [] # Create an empty stack
 
@@ -24,6 +26,5 @@ class Ev:
                 rhs = stack.pop()
                 lhs = stack.pop()
                 stack.append(ops[tok](lhs, rhs))
-        print(stack[0]) # Print the result
-        #print(toks) # Print tokens
-Ev.ev_expr(open(sys.argv[1]).read())
+        return stack[0] # Return result
+Ev.ev(open(sys.argv[1]).read())
