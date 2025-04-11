@@ -10,7 +10,7 @@ class Ev:
         for line in lines:
             (var, _, expr) = line.split(maxsplit=2) # Split line into var, = and expr
             self.vars[var] = self.ev_expr(expr) # Assign var with value
-        print(self.vars)
+        print(self.vars) # Print variable
     def ev_expr(self, s): # Single expression evaluator function
         toks = s.split() # Split a line into tokens
         stack = [] # Create an empty stack
