@@ -5,10 +5,12 @@
 import sys
 class Ev:
     def ev(self, s): # Evaluator function for each line
+        self.vars = {}
         lines = [x for x in s.split("\n") if x.strip() != ""] # Split into new lines and throw away empty lines
         for line in lines:
             (var, _, expr) = line.split(maxsplit=2) # Split line into var, = and expr
-            print(var, self.ev_expr(expr)) # Evaluate each line
+            self.vars[var] = self.ev_expr(expr) # Assign var with value
+        print(self.vars)
     def ev_expr(self, s): # Single expression evaluator function
         toks = s.split() # Split a line into tokens
         stack = [] # Create an empty stack
