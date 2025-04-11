@@ -27,4 +27,4 @@ class Ev:
                 lhs = stack.pop()
                 stack.append(ops[tok](lhs, rhs))
         return stack[0] # Return result
-Ev.ev(open(sys.argv[1]).read())
+Ev().ev(open(sys.argv[1]).read())
