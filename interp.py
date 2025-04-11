@@ -7,6 +7,14 @@ def ev(s): # Evaluation function
     toks = s.split() # Split a line into tokens
     stack = [] # Create an empty stack
 
+    # Operators
+    ops = {
+        '+': lambda a, b: a + b,
+        '-': lambda a, b: a - b,
+        '*': lambda a, b: a * b,
+        '/': lambda a, b: a / b
+    }
+
     for tok in toks:
         if tok.isnumeric(): stack.append(int(tok)) # Append numbers to the stack
         elif tok == "+":
