@@ -25,6 +25,7 @@ class Ev:
 
         for tok in toks:
             if tok.isnumeric(): stack.append(int(tok)) # Append numbers to the stack
+            elif tok in self.vars: stack.append(self.vars[tok]) # If a token contains a variable name
             elif tok in ops:
                 rhs = stack.pop()
                 lhs = stack.pop()
