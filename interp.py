@@ -4,7 +4,7 @@
 
 import sys
 class Ev:
-    def ev(self, s):
+    def ev(self, s): # Evaluator function for each line
         lines = [x for x in s.split("\n") if x.strip() != ""] # Split into new lines and throw away empty lines
         for line in lines:
             print(self.ev_expr(line)) # Evaluate each line
