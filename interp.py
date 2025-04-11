@@ -17,11 +17,12 @@ def ev(s): # Evaluation function
 
     for tok in toks:
         if tok.isnumeric(): stack.append(int(tok)) # Append numbers to the stack
-        elif tok == "+":
-            rhs = stack.pop() # Remove two numbers from stack
-            lhs = stack.pop()
-            stack.append(lhs + rhs) # Append result to stack
-    print(stack[0]) # Print value
+        elif tok in ops:
+           rhs = stack.pop()
+           lhs = stack.pop()
+           stack.append(ops[tok](lhs, rhs))
+    print(stack[0]) # Print the result
+            
 
     #print(toks) # Print tokens
 ev(open(sys.argv[1]).read())
